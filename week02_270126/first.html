@@ -5,24 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS</title>
     <style>
-        body{
-            background-color: rgba(226, 43, 128, 0.274);
-            
-        }
-        table{
-            border-width: 10cm;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            width: 40%;
-            margin: auto;
-        }
-        th,td{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            text-align: left;
-            padding: 1%;
-            background-color: antiquewhite;
-        }
-        
-    </style>
+    body{
+        background-color: rgba(226, 43, 128, 0.274);
+        font-family: Arial, sans-serif;
+    }
+    table{
+        width: 40%;
+        margin: auto;
+        border-collapse: collapse;
+    }
+    th, td{
+        padding: 10px;
+        text-align: left;
+        background-color: antiquewhite;
+    }
+    .highlight{
+        color: darkred;
+        font-weight: bold;
+    }
+
+    /* Pseudo-class */
+    tr:hover{
+        background-color: lightpink;
+    }
+
+    a:hover{
+        color: red;
+    }
+
+    /* Pseudo-element */
+    p::first-letter{
+        font-size: 150%;
+        color: darkblue;
+    }
+
+    li::marker{
+        color: purple;
+    }
+</style>
+
     </head>
     <body>
         <header>
@@ -31,6 +52,13 @@
         <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align:center">
             Welcome to FCRIT academic calendar, you can check the important events and official holidays here on this website.
         </p>
+        <h3 style="text-align:center;">Important Notes</h3>
+<ul style="width:40%; margin:auto;">
+    <li>Check calendar regularly</li>
+    <li class="highlight">Events may change</li>
+    <li>Official holidays included</li>
+</ul>
+
         <table>
             <tr>
                 <th>Date</th>
@@ -53,5 +81,9 @@
                 <td>Etamax</td>
             </tr>
         </table>
+        <p style="text-align:center;">
+    <a href="#">Click here for more details</a>
+</p>
+
     </body>
 </html>

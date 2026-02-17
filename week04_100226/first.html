@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title>JAVASCRIPT</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.21.1/dist/css/coreui.min.css" rel="stylesheet">
+        <script defer src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.21.1/dist/js/coreui.bundle.min.js"></script>
+        
+
+
+    </head>
+    <body>
+        <div style="text-align: center;">
+        <span style="font-family: 'Pixelify Sans',sans-serif;text-align:center;font-size: 50px;">CHANGE THE APPLE</span>
+        </div>
+        <p style="font-family:Poppins;margin-left: 50px;margin-top: 50px;text-align: center;">Enter your birthdate and click on the apple 🍎....</p>
+        <form id="birthForm" style="text-align:center; margin-top:px;">
+       <div class="container mt-5">
+
+  <div class="row align-items-center">
+
+    <!-- LEFT COLUMN : CALENDAR -->
+    <div class="col-md-6 text-center">
+
+    <input type="date" id="calendar"
+    class="form-control w-50 mx-auto">
+
+    </div>
+
+
+    <!-- RIGHT COLUMN : PHOTO -->
+    <div class="col-md-6 text-center">
+      <img id="apple"
+      src="https://i.pinimg.com/736x/f5/55/d3/f555d3e6425e0d74c5305f3493270c55.jpg"
+      width="140"
+      style="cursor:pointer;">
+      
+      <p id="message" style="font-family:Poppins; margin-top:15px;"></p>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+</form>
+<script>
+
+document.getElementById("apple").onclick = function(){
+
+    let dateValue =
+        document.getElementById("calendar").value;
+
+    if(!dateValue){
+        alert("Select a date first 🍎");
+        return;
+    }
+
+    let dateObj = new Date(dateValue);
+    let month = dateObj.getMonth(); // 0=Jan
+
+    // August or September
+    if(month === 7 || month === 8){
+        this.src =
+        "https://i.pinimg.com/1200x/d2/d0/b7/d2d0b72c231f4be327d8a1a1d7384f59.jpg";
+        document.getElementById("message").innerHTML="Your birth month is cool enough"
+    }
+    else{
+        // different image for all other months
+        this.src =
+        "https://i.pinimg.com/736x/55/6b/4c/556b4c9cd6bd71a92f7839305441e864.jpg";
+         document.getElementById("message").innerHTML =
+        "Your birth month is not good enough";
+    }
+
+};
+
+</script>
+
+
+
+    </body>
+    
+
+</html>
