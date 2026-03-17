@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+body{
+  background-color:#f2f4f8;
+    font-family:Verdana, Geneva, sans-serif;
+      text-align:center;
+        margin-top:60px;
+        }
+        
+        .box{
+          width:300px;
+            margin:auto;
+              padding:20px;
+                border:2px solid #4a6fa5;
+                  background-color:#ffffff;
+                  }
+                  
+                  h2{
+                    color:#4a6fa5;
+                    }
+                    
+                    input{
+                      width:90%;
+                        padding:8px;
+                          border:1px solid #999;
+                            margin:10px 0;
+                            }
+                            
+                            button{
+                              background-color:#4a6fa5;
+                                color:white;
+                                  border:none;
+                                    padding:8px 15px;
+                                      cursor:pointer;
+                                      }
+                                      
+                                      #result{
+                                        margin-top:15px;
+                                          color:#222;
+                                            font-weight:bold;
+                                            }
+                                            </style>
+                                            </head>
+                                            
+                                            <body>
+                                            
+                                            <div class="box">
+                                              <h2>Calculator</h2>
+                                              
+                                                <input type="text" id="expression" placeholder="10 + 5 * 2">
+                                                  <br>
+                                                    <button onclick="calculate()">Calculate</button>
+                                                    
+                                                      <p id="result"></p>
+                                                        <p id="date"></p>
+                                                        </div>
+                                                        
+                                                        <script>
+                                                        function calculate(){
+                                                          const input=document.getElementById("expression").value;
+                                                            const resultBox=document.getElementById("result");
+                                                            
+                                                              try{
+                                                                  // STRING
+                                                                      let expr=input.trim();
+                                                                      
+                                                                          // VALIDATION
+                                                                              if(expr===""){
+                                                                                    throw "Input cannot be empty";
+                                                                                        }
+                                                                                        
+                                                                                            if(!/^[0-9+\-*/(). ]+$/.test(expr)){
+                                                                                                  throw "Invalid characters";
+                                                                                                      }
+                                                                                                      
+                                                                                                          // ARRAY
+                                                                                                              let parts=expr.split(" ");
+                                                                                                                  console.log(parts);
+                                                                                                                  
+                                                                                                                      let answer=eval(expr);
+                                                                                                                      
+                                                                                                                          if(!isFinite(answer)){
+                                                                                                                                throw "Math Error";
+                                                                                                                                    }
+                                                                                                                                    
+                                                                                                                                        resultBox.innerHTML="Result: "+answer;
+                                                                                                                                        
+                                                                                                                                            // DATE
+                                                                                                                                                let now=new Date();
+                                                                                                                                                    document.getElementById("date").innerHTML=
+                                                                                                                                                          "Calculated on: "+now.toLocaleString();
+                                                                                                                                                          
+                                                                                                                                                            }catch(error){
+                                                                                                                                                                // ERROR HANDLING
+                                                                                                                                                                    resultBox.innerHTML="Error: "+error;
+                                                                                                                                                                      }
+                                                                                                                                                                      }
+                                                                                                                                                                      </script>
+                                                                                                                                                                      
+                                                                                                                                                                      </body>
+                                                                                                                                                                      </html>>
